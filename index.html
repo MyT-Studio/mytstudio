@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MyT Studio — استوديو برمجي مستقل</title>
+  <meta name="description" content="MyT Studio — استوديو برمجي مستقل. أصنع حلولاً رقمية عربية أصيلة للمعلمين والمدارس، وأدوات إنتاجية للجميع." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%230F172A%22/><text y=%22.9em%22 font-size=%2290%22>M</text></svg>" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: #F8FAFC;
+      color: #0F172A;
+      line-height: 1.8;
+    }
+    
+    /* ===== Header / Nav ===== */
+    header {
+      background: #0F172A;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    header .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    header .logo-icon {
+      width: 36px; height: 36px;
+      background: linear-gradient(135deg, #7C3AED, #4C1D95);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 14px; color: white;
+    }
+    header .logo-text {
+      color: white;
+      font-weight: 700; font-size: 18px;
+    }
+    header .logo-text span { color: #7C3AED; }
+    nav { display: flex; gap: 20px; align-items: center; }
+    nav a {
+      color: #94A3B8;
+      text-decoration: none;
+      font-size: 14px; font-weight: 600;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: #A78BFA; }
+    
+    /* ===== Hero ===== */
+    .hero {
+      padding: 80px 24px 60px;
+      text-align: center;
+      background: linear-gradient(180deg, #0F172A 0%, #1E293B 100%);
+      color: white;
+    }
+    .hero h1 {
+      font-size: 42px; font-weight: 800;
+      background: linear-gradient(135deg, #7C3AED, #14B8A6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 16px;
+    }
+    .hero h2 {
+      font-size: 20px; font-weight: 400;
+      color: #CBD5E1;
+      margin-bottom: 8px;
+    }
+    .hero p {
+      font-size: 16px;
+      color: #94A3B8;
+      max-width: 600px;
+      margin: 0 auto 32px;
+    }
+    .hero .tagline {
+      font-size: 18px; font-weight: 600;
+      color: #14B8A6;
+    }
+    .hero-links {
+      display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+    }
+    .hero-links a {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 24px; border-radius: 12px;
+      font-size: 14px; font-weight: 600; text-decoration: none;
+      transition: all 0.2s;
+    }
+    .hero-links a.primary {
+      background: #7C3AED; color: white;
+    }
+    .hero-links a.primary:hover { background: #6D28D9; }
+    .hero-links a.secondary {
+      background: transparent; color: #CBD5E1;
+      border: 1px solid #334155;
+    }
+    .hero-links a.secondary:hover { border-color: #7C3AED; color: white; }
+
+    /* ===== Projects ===== */
+    .projects { padding: 60px 24px; }
+    .projects h2 {
+      font-size: 24px; font-weight: 700;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .projects h2 span { color: #7C3AED; }
+    .projects .sub {
+      text-align: center;
+      color: #64748B;
+      font-size: 14px;
+      margin-bottom: 48px;
+    }
+    
+    .category { margin-bottom: 48px; }
+    .category h3 {
+      font-size: 16px; font-weight: 700;
+      color: #7C3AED;
+      margin-bottom: 16px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .category h3 .line {
+      flex: 1; height: 1px; background: #E2E8F0;
+    }
+    
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: white;
+      border: 1px solid #E2E8F0;
+      border-radius: 16px;
+      padding: 24px;
+      transition: all 0.2s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .card:hover {
+      border-color: #7C3AED;
+      box-shadow: 0 4px 20px rgba(124, 58, 237, 0.1);
+      transform: translateY(-2px);
+    }
+    .card .icon {
+      width: 40px; height: 40px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+    .card h4 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .card p { font-size: 12px; color: #64748B; }
+    .card .status {
+      display: inline-block;
+      font-size: 10px; font-weight: 600;
+      padding: 2px 8px; border-radius: 20px;
+      margin-top: 8px;
+    }
+    .card .status.live { background: #D1FAE5; color: #065F46; }
+    .card .status.dev { background: #FEF3C7; color: #92400E; }
+    .card .status.idea { background: #E0E7FF; color: #3730A3; }
+    
+    /* ===== About ===== */
+    .about {
+      padding: 60px 24px;
+      background: #0F172A;
+      color: white;
+      text-align: center;
+    }
+    .about h2 { font-size: 24px; font-weight: 700; margin-bottom: 16px; }
+    .about h2 span { color: #14B8A6; }
+    .about p {
+      max-width: 600px; margin: 0 auto;
+      color: #94A3B8; font-size: 14px;
+    }
+    
+    /* ===== Footer ===== */
+    footer {
+      background: #0B0D14;
+      color: #64748B;
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 13px;
+    }
+    footer .social {
+      display: flex; gap: 16px; justify-content: center;
+      margin-bottom: 12px;
+    }
+    footer .social a {
+      color: #94A3B8; text-decoration: none;
+      font-weight: 600; transition: color 0.2s;
+    }
+    footer .social a:hover { color: #7C3AED; }
+    footer .copy { font-size: 11px; color: #475569; }
+    footer .copy span { color: #7C3AED; }
+    
+    /* ===== Responsive ===== */
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 28px; }
+      .hero h2 { font-size: 16px; }
+      header { flex-direction: column; gap: 12px; }
+      nav { flex-wrap: wrap; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="/" class="logo">
+    <div class="logo-icon">M</div>
+    <div class="logo-text">MyT <span>Studio</span></div>
+  </a>
+  <nav>
+    <a href="/">الرئيسية</a>
+    <a href="#projects">المشاريع</a>
+    <a href="#about">عن الاستوديو</a>
+    <a href="https://x.com/_MyTStudio" target="_blank">X</a>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <h1>MyT Studio</h1>
+  <h2>استوديو برمجي مستقل</h2>
+  <p class="tagline">أصنع حلولاً رقمية عربية أصيلة</p>
+  <p>أؤمن بأن البرمجيات الجيدة تُصنع بهدوء، بعيداً عن الضجيج.<br />كل منتج هنا يحمل توقيعاً شخصياً واهتماماً بالتفاصيل.</p>
+  <div class="hero-links">
+    <a href="#projects" class="primary">استعرض المشاريع</a>
+    <a href="https://x.com/_MyTStudio" target="_blank" class="secondary">تابعني على X</a>
+  </div>
+</section>
+
+<!-- Projects -->
+<section class="projects" id="projects">
+  <h2>المشاريع <span>✦</span></h2>
+  <p class="sub">صالة عرض لكل ما أنتجته — تحت سقف واحد</p>
+
+  <!-- Education -->
+  <div class="category">
+    <h3><span>📚</span> التعليم والمدارس <span class="line"></span></h3>
+    <div class="grid">
+      <a href="https://eduquest.vercel.app" target="_blank" class="card">
+        <div class="icon" style="background:#D1FAE5;">🧪</div>
+        <h4>EduQuest</h4>
+        <p>منصة علوم تفاعلية — gamified learning للمرحلة المتوسطة والثانوية</p>
+        <span class="status live">منشور</span>
+      </a>
+      <a href="#" class="card">
+        <div class="icon" style="background:#DBEAFE;">🏫</div>
+        <h4>مجمع الأمين</h4>
+        <p>منصة إدارة مدرسية شاملة — متابعة الطلاب والمعلمين والفصول</p>
+        <span class="status dev">قيد التطوير</span>
+      </a>
+      <a href="#" class="card">
+        <div class="icon" style="background:#FEF3C7;">🔤</div>
+        <h4>لعبة حروف</h4>
+        <p>لعبة تعليمية تفاعلية لتعلّم الحروف العربية للأطفال</p>
+        <span class="status dev">قيد التطوير</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Productivity -->
+  <div class="category">
+    <h3><span>🛠️</span> أدوات إنتاجية <span class="line"></span></h3>
+    <div class="grid">
+      <a href="#" class="card">
+        <div class="icon" style="background:#E0E7FF;">💰</div>
+        <h4>برنامج المصروفات</h4>
+        <p>إدارة المصروفات الشخصية والعائلية بتقارير ومخططات تفاعلية</p>
+        <span class="status idea">مخطط</span>
+      </a>
+      <a href="#" class="card">
+        <div class="icon" style="background:#D1FAE5;">🗺️</div>
+        <h4>برنامج تنظيم الرحلات</h4>
+        <p>تخطيط وتنظيم رحلات مدرسية وعائلية مع جدولة ومتابعة</p>
+        <span class="status idea">مخطط</span>
+      </a>
+      <a href="#" class="card">
+        <div class="icon" style="background:#FCE7F3;">📋</div>
+        <h4>منصة إدارة المهام</h4>
+        <p>نظام إدارة مهام متكامل يناسب الفرق الصغيرة والأفراد</p>
+        <span class="status dev">قيد التطوير</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Side Projects -->
+  <div class="category">
+    <h3><span>🎮</span> مشاريع جانبية <span class="line"></span></h3>
+    <div class="grid">
+      <a href="https://nyxz.vercel.app" target="_blank" class="card">
+        <div class="icon" style="background:#F3E8FF;">🌙</div>
+        <h4>Nyx — نيكس</h4>
+        <p>منصة عربية للدعم العاطفي الصامت — بدون حسابات ولا تتبع</p>
+        <span class="status live">منشور</span>
+      </a>
+      <a href="#" class="card">
+        <div class="icon" style="background:#FEE2E2;">💣</div>
+        <h4>لعبة الحرب الذرية</h4>
+        <p>لعبة استراتيجية متعددة اللاعبين</p>
+        <span class="status idea">مخطط</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="about" id="about">
+  <h2>عن <span>MyT Studio</span></h2>
+  <p>
+    أنا معلم علوم ومطور مستقل. أصنع حلولاً رقمية عربية أصيلة في وقت فراغي،
+    بشغف وتفاصيل. أؤمن بأن أفضل برمجيات لا تُصنع في صالات الاجتماعات، بل في هدوء الليل
+    وكوب شاي وسطر كود في كل مرة.
+  </p>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="social">
+    <a href="https://github.com/MyT-Studio" target="_blank">GitHub</a>
+    <a href="https://x.com/_MyTStudio" target="_blank">X (Twitter)</a>
+    <a href="mailto:bmytstudio@gmail.com">البريد</a>
+  </div>
+  <div class="copy">
+    © 2026 <span>MyT Studio</span> — Made with 🤍 by Bandar
+  </div>
+</footer>
+
+</body>
+</html>
