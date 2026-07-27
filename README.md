@@ -2,7 +2,7 @@
 
 > استوديو برمجي مستقل — أصنع حلولاً رقمية عربية أصيلة.
 
-https://mytstudio.github.io
+https://myt-studio.github.io/mytstudio/
 
 ## المشاريع
 
