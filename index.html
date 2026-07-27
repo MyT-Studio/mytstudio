@@ -327,6 +327,18 @@
     }
     .card:hover .status { transform: translateX(-4px); }
     .card .status.live { background: #D1FAE5; color: #065F46; }
+    .card.live-card { position: relative; }
+    .card.live-card::after {
+      content: ''; position: absolute; right: -1px; top: 12px; bottom: 12px; width: 3px;
+      background: linear-gradient(180deg, #10B981, #34D399);
+      border-radius: 0 3px 3px 0;
+      box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+      animation: live-pulse 2s ease-in-out infinite;
+    }
+    @keyframes live-pulse {
+      0%, 100% { opacity: 0.6; box-shadow: 0 0 6px rgba(16, 185, 129, 0.3); }
+      50% { opacity: 1; box-shadow: 0 0 14px rgba(16, 185, 129, 0.7); }
+    }
     .card .status.dev { background: #FEF3C7; color: #92400E; }
     .card .status.idea { background: #E0E7FF; color: #3730A3; }
 
@@ -540,7 +552,7 @@
       <span class="line"></span>
     </div>
     <div class="grid stagger">
-      <a href="https://eduquestlab.com" target="_blank" class="card">
+      <a href="https://eduquestlab.com" target="_blank" class="card live-card">
         <div class="icon-wrap" style="background:#D1FAE5;">🧪</div>
         <h4>EduQuest</h4>
         <p>منصة علوم تفاعلية — gamified learning للمرحلة المتوسطة</p>
@@ -596,7 +608,7 @@
       <span class="line"></span>
     </div>
     <div class="grid stagger">
-      <a href="https://nyxz.vercel.app" target="_blank" class="card">
+      <a href="https://nyxz.vercel.app" target="_blank" class="card live-card">
         <div class="icon-wrap" style="background:#F3E8FF;">🌙</div>
         <h4>Nyx — نيكس</h4>
         <p>منصة عربية للدعم لتحرير المشاعر المكتومة بأمان .. بدون حسابات بدون تتبع</p>
