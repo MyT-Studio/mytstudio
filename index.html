@@ -1200,28 +1200,8 @@ section{padding-block:clamp(54px,6.6vh,78px);}
 @keyframes stampSpin{to{transform:rotate(360deg)}}
 
 @media (max-width:1024px){
-  .hero-content{grid-template-columns:1fr; row-gap:0;}
-  /* البطاقات الطافية تبقى ظاهرة على الجوال: شريط أفقي يُسحب بالإصبع */
-  .hero-visual{
-    display:flex; grid-column:1; grid-row:auto; position:static;
-    height:auto; width:100%; margin-top:30px; padding:2px 2px 8px;
-    gap:14px; overflow-x:auto; overflow-y:hidden;
-    scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;
-    pointer-events:auto; scrollbar-width:none;
-  }
-  .hero-visual::-webkit-scrollbar{display:none;}
-  .hv-card{
-    position:static; flex:0 0 min(78vw,300px); width:auto;
-    transform:none; animation:none; margin:0;
-    scroll-snap-align:start;
-  }
-  .hv-a,.hv-b,.hv-c{top:auto; inset-inline:auto;}
-  .hv-stamp{
-    position:static; flex:0 0 auto; align-self:center;
-    width:72px; height:72px; margin-inline:8px 0;
-  }
-  .hv-stamp b{font-size:1.3rem;}
-  .hv-stamp span{font-size:.62rem;}
+  .hero-content{grid-template-columns:1fr;}
+  .hero-visual{display:none;}
 }
 
 
